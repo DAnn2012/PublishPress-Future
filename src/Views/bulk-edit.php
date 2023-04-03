@@ -14,6 +14,8 @@ $container = \PublishPressFuture\Core\DI\Container::getInstance();
 $settingsFacade = $container->get(\PublishPressFuture\Core\DI\ServicesAbstract::SETTINGS);
 
 $defaults = $settingsFacade->getPostTypeDefaults($post_type);
+
+$postTypeObject = get_post_type_object($post_type);
 ?>
 <div style="clear:both"></div>
 <div class="inline-edit-col post-expirator-quickedit">
@@ -29,24 +31,33 @@ $defaults = $settingsFacade->getPostTypeDefaults($post_type);
                                 esc_html_e('Enable Post Expiration', 'post-expirator'); ?></span>
                             <select name="expirationdate_status">
                                 <option value="no-change" data-show-fields="false" selected>
-                                    --<?php
-                                    esc_html_e('No Change', 'post-expirator'); ?>--
+                                    — <?php
+                                    esc_html_e('No Change', 'post-expirator'); ?> —
                                 </option>
-                                <option value="change-only" data-show-fields="true"
-                                        title="<?php
-                                        esc_attr_e('Change expiry date if enabled on p  osts', 'post-expirator'); ?>"><?php
-                                    esc_html_e('Change on posts', 'post-expirator'); ?></option>A
-                                <option value="add-only" data-show-fields="true"
-                                        title="<?php
-                                        esc_attr_e('Add expiry date if not enabled on posts', 'post-expirator'); ?>"><?php
-                                    esc_html_e('Add to posts', 'post-expirator'); ?></option>
+                                <option
+                                    value="change-only"
+                                    data-show-fields="true"><?php echo sprintf(
+                                            esc_html__('Modify enabled future action for %s', 'post-expirator'),
+                                            strtolower($postTypeObject->labels->singular_name)
+                                        ); ?>
+                                    </option>
+                                <option
+                                    value="add-only"
+                                    data-show-fields="true"><?php echo sprintf(
+                                            esc_html__('Add future action if not enabled for the %s', 'post-expirator'),
+                                            strtolower($postTypeObject->labels->singular_name)
+                                        ); ?></option>
                                 <option value="change-add"
 
-                                        data-show-fields="true"><?php
-                                    esc_html_e('Change & Add', 'post-expirator'); ?></option>
+                                        data-show-fields="true"><?php echo sprintf(
+                                            esc_html__('Add/modify future action regardless of action status on %s', 'post-expirator'),
+                                            strtolower($postTypeObject->labels->singular_name)
+                                        ); ?></option>
                                 <option value="remove-only"
-                                        data-show-fields="false"><?php
-                                    esc_html_e('Remove from posts', 'post-expirator'); ?></option>
+                                        data-show-fields="false"><?php echo sprintf(
+                                            esc_html__('Remove future action on %s', 'post-expirator'),
+                                            strtolower($postTypeObject->labels->singular_name)
+                                        ); ?></option>
                             </select>
                         </label><br /><br />
 
