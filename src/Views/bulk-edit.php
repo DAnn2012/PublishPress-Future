@@ -20,12 +20,10 @@ $defaults = $settingsFacade->getPostTypeDefaults($post_type);
     <div class="inline-edit-col">
         <div class="inline-edit-group">
             <legend class="inline-edit-legend"><?php
-                esc_html_e('PublishPress Future', 'post-expirator'); ?></legend>
+                esc_html_e('Future Action', 'post-expirator'); ?></legend>
             <fieldset class="inline-edit-date">
                 <div class="pe-qe-fields">
                     <div>
-                        <legend><span class="title"><?php
-                                esc_html_e('Date', 'post-expirator'); ?></span></legend>
                         <label>
                             <span class="screen-reader-text"><?php
                                 esc_html_e('Enable Post Expiration', 'post-expirator'); ?></span>
@@ -37,7 +35,7 @@ $defaults = $settingsFacade->getPostTypeDefaults($post_type);
                                 <option value="change-only" data-show-fields="true"
                                         title="<?php
                                         esc_attr_e('Change expiry date if enabled on p  osts', 'post-expirator'); ?>"><?php
-                                    esc_html_e('Change on posts', 'post-expirator'); ?></option>
+                                    esc_html_e('Change on posts', 'post-expirator'); ?></option>A
                                 <option value="add-only" data-show-fields="true"
                                         title="<?php
                                         esc_attr_e('Add expiry date if not enabled on posts', 'post-expirator'); ?>"><?php
@@ -50,8 +48,12 @@ $defaults = $settingsFacade->getPostTypeDefaults($post_type);
                                         data-show-fields="false"><?php
                                     esc_html_e('Remove from posts', 'post-expirator'); ?></option>
                             </select>
-                        </label>
+                        </label><br /><br />
+
                         <span class="post-expirator-date-fields">
+                            <legend><span class="title"><?php
+                                esc_html_e('Date', 'post-expirator'); ?></span></legend>
+
                             <label>
                                 <span class="screen-reader-text"><?php
                                     esc_html_e('Month', 'post-expirator'); ?></span>
