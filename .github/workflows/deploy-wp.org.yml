@@ -34,7 +34,7 @@ jobs:
           BUILD_DIR: /project/dist/post-expirator
 
       - name: Save version number to version.txt
-        run: npm run get-version
+        run: yarn run get-version
 
       - name: Get version number from version.txt
         id: get-version
