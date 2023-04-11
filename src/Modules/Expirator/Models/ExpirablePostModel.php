@@ -375,7 +375,7 @@ class ExpirablePostModel extends PostModel
         if (! $this->expirationEmailIsEnabled()) {
             $expirationLog .= __('Email is disabled', 'post-expirator');
         } else {
-            $emailSent = $this->sendEmail($expirationAction);
+            $emailSent = $this->sendEmail($expirationAction, 'Hey!');
             $expirationLog .= $emailSent
                 ? __('Email sent', 'post-expirator') : __('Email not sent', 'post-expirator');
         }
@@ -426,11 +426,11 @@ class ExpirablePostModel extends PostModel
      * @param string $actionNotificationText
      * @return bool
      */
-    private function sendEmail($expirationAction, $actionNotificationText)
+    private function sendEmail(ExpirationActionInterface $expirationAction)
     {
         $emailBody = sprintf(
             __(
-                '%1$s (%2$s) has expired at %3$s. %4$s',
+                 '%s. %s on %s. The post link is %s',
                 'post-expirator'
             ),
             '##POSTTITLE##',
@@ -568,6 +568,12 @@ class ExpirablePostModel extends PostModel
 
             // Send each email.
             foreach ($emailAddresses as $email) {
+                if (empty($email)) {
+                    $this->debug->log($this->getPostId() . ' -> EMPTY EMAIL ADDRESS, SKIPPING');
+
+                    continue;
+                }
+
                 $emailSent = $this->email->send(
                     $email,
                     $emailSubject,
