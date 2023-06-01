@@ -151,6 +151,7 @@ Yes, the PublishPress Future plugin allows you to schedule automatic changes to 
 * FIXED: Fix escaping on a few admin text;
 * FIXED: Fix text and positions of expiration fields in the bulk edit form;
 * FIXED: Fix email notifications, #414;
+* FIXED: Fix PHP Fatal error: Uncaught TypeError: gmdate(): Argument #2 ($timestamp) must be of type ?int, #413;
 
 = [2.9.2] - 28 Feb, 2023 =
 
