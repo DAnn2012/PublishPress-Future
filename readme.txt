@@ -137,6 +137,10 @@ Yes, the PublishPress Future plugin allows you to schedule automatic changes to 
 
 == Changelog ==
 
+= UNRELEASED =
+
+* FIXED: Fix PHP warning about undefined index 'terms', #412;
+
 = [2.9.2] - 28 Feb, 2023 =
 
 * FIXED: List of actions in the post type settings is not filtered by post types, #400;
