@@ -261,7 +261,7 @@ class PostExpirator_Facade
                     'single' => true,
                     'type' => 'string',
                     'auth_callback' => function () {
-                        return current_user_can('edit_posts');
+                        return current_user_can(CapabilitiesAbstract::EXPIRE_POST);
                     },
                     'show_in_rest' => true,
                 )
@@ -273,7 +273,7 @@ class PostExpirator_Facade
                     'single' => true,
                     'type' => 'number',
                     'auth_callback' => function () {
-                        return current_user_can('edit_posts');
+                        return current_user_can(CapabilitiesAbstract::EXPIRE_POST);
                     },
                     'show_in_rest' => true,
                 )
@@ -285,7 +285,7 @@ class PostExpirator_Facade
                     'single' => true,
                     'type' => 'string',
                     'auth_callback' => function () {
-                        return current_user_can('edit_posts');
+                        return current_user_can(CapabilitiesAbstract::EXPIRE_POST);
                     },
                     'show_in_rest' => true,
                 )
@@ -297,7 +297,7 @@ class PostExpirator_Facade
                     'single' => true,
                     'type' => 'array',
                     'auth_callback' => function () {
-                        return current_user_can('edit_posts');
+                        return current_user_can(CapabilitiesAbstract::EXPIRE_POST);
                     },
                     'show_in_rest' => array(
                         'schema' => array(
@@ -319,7 +319,7 @@ class PostExpirator_Facade
                     'single' => true,
                     'type' => 'object',
                     'auth_callback' => function () {
-                        return current_user_can('edit_posts');
+                        return current_user_can(CapabilitiesAbstract::EXPIRE_POST);
                     },
                     'show_in_rest' => array(
                         'schema' => array(
