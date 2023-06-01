@@ -142,6 +142,7 @@ Yes, the PublishPress Future plugin allows you to schedule automatic changes to 
 = UNRELEASED =
 
 * FIXED: Fix PHP warning about undefined index 'terms', #412;
+* FIXED: Fix error on block editor: can't read "length" of undefined;
 
 = [2.9.2] - 28 Feb, 2023 =
 
